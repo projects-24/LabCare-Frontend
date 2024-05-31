@@ -10,7 +10,7 @@ import { PiPaperPlane, PiTrash } from 'react-icons/pi'
 import Input from '@/ui/input'
 import SectionUI from '@/ui/section'
 import CircleUi from '@/ui/Circle'
-
+import Modal from 'funuicss/ui/modal/Modal'
 
 const get_regions = () => [
   {
@@ -96,27 +96,60 @@ export default async function Branch() {
   
   return (
     <div>
+            <Modal
+          open={true}
+          title={
+            <div>
+            <RowFlexUi gap={1} justify='space-between'>
+              <div>
+                <TextUi text='Create & Edit'/>
+                <TextUi text='Staff👨‍💼' heading='h2' bold color='dark400' block/>
+              </div>
+              <div>
+                <UiButton type='submit' text={'Submit'} bold bg='primary' endIcon={<PiPaperPlane />}/>
+              </div>
+            </RowFlexUi>
+          </div>
+          }
+          body={
+          <div>
+              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
+              <div className='col'>
+                <Input label={'Email'} hint={'username@email.com'} fullWidth name='email'/>
+              </div>
+              <div className='col'>
+              <Input label={'Password'} type='password' hint={'025710700'} fullWidth name='password'/>
+              </div>
+            </RowFlexUi>
+              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
+              <div className='col'>
+                <Input label={'Full Name'} hint={'username'} fullWidth name='fullname'/>
+              </div>
+              <div className='col'>
+              <Input label={'Phone'} hint={'025710700'} fullWidth name='phone'/>
+              </div>
+            </RowFlexUi>
+              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
+              <div className='col'>
+                <Input label={'Position'} hint={'user position'} fullWidth name='position'/>
+              </div>
+              <div className='col'>
+              <Input label={'Role'} hint={'Role'} fullWidth name='role'/>
+              </div>
+            </RowFlexUi>
+          </div>
+          }
+          />
+
         <Side />
         <Content>
           <Header />
+      
           <form action={Submit}>
           <Card 
           funcss='roundEdgeSmall padding-20'
-          header={
-            <div>
-              <RowFlexUi gap={1} justify='space-between'>
-                <div>
-                  <TextUi text='Setup'/>
-                  <TextUi text='Branch' heading='h4' bold color='dark400' block/>
-                </div>
-                <div>
-                  <UiButton type='submit' text={'Submit'} bold bg='primary' endIcon={<PiPaperPlane />}/>
-                </div>
-              </RowFlexUi>
-            </div>
-          }
           body={
-              <RowFlexUi gap={1} alignItems='flex-start'>
+              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
                 <div className='col'>
                   <Input label={'Branch'} hint={'Branch Name'} fullWidth name='branch'/>
                   <SectionUI gap={1}/>
