@@ -1,16 +1,18 @@
+'use client'
 import Content from '@/ui/Content'
 import Header from '@/ui/Header'
 import Side from '@/ui/sidebar'
-import React from 'react'
+import React, { useState } from 'react'
 import Card from 'funuicss/ui/card/Card'
 import RowFlexUi from '@/ui/RowFlex'
 import TextUi from '@/ui/Text'
 import UiButton from '@/ui/button'
-import { PiPaperPlane, PiTrash } from 'react-icons/pi'
+import { PiPaperPlane, PiTrash, PiUser, PiX } from 'react-icons/pi'
 import Input from '@/ui/input'
 import SectionUI from '@/ui/section'
 import CircleUi from '@/ui/Circle'
 import Modal from 'funuicss/ui/modal/Modal'
+import TableUI from '@/ui/Table'
 
 const get_regions = () => [
   {
@@ -82,13 +84,14 @@ const get_regions = () => [
       "text": "Western North"
   }
 ]
-export default async function Branch() {
+export default function Staff() {
+  const [open, setopen] = useState(false)
 
   const Submit = async (data) => {
-    "use server"
     let branch, region 
     branch = data.get('branch')
     region = data.get('region')
+    console.log(region, branch)
     
   }
 
@@ -97,22 +100,18 @@ export default async function Branch() {
   return (
     <div>
             <Modal
-          open={true}
+          open={open}
+          close={<PiX onClick={() => setopen(false)} size={27} className='pointer'/>}
+          animation="SlideDown"
+          flat
           title={
-            <div>
-            <RowFlexUi gap={1} justify='space-between'>
-              <div>
+            <div className='container'>
                 <TextUi text='Create & Edit'/>
                 <TextUi text='Staff👨‍💼' heading='h2' bold color='dark400' block/>
-              </div>
-              <div>
-                <UiButton type='submit' text={'Submit'} bold bg='primary' endIcon={<PiPaperPlane />}/>
-              </div>
-            </RowFlexUi>
           </div>
           }
           body={
-          <div>
+          <div className='container'>
               <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
               <div className='col'>
                 <Input label={'Email'} hint={'username@email.com'} fullWidth name='email'/>
@@ -139,45 +138,31 @@ export default async function Branch() {
             </RowFlexUi>
           </div>
           }
+          footer={
+            <div className="text-right container">
+                     <UiButton type='submit' text={'Submit'} bold bg='primary' endIcon={<PiPaperPlane />}/>
+            </div>
+          }
           />
 
         <Side />
         <Content>
           <Header />
-      
-          <form action={Submit}>
           <Card 
           funcss='roundEdgeSmall padding-20'
           body={
-              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
-                <div className='col'>
-                  <Input label={'Branch'} hint={'Branch Name'} fullWidth name='branch'/>
-                  <SectionUI gap={1}/>
-                  <Input name='region' label={'Region'} select options={get_regions()} fullWidth />
-                </div>
-                <div className='col'>
-                  <Input label={'Address'} hint={'Enter Address'} fullWidth multiline rows={5}/>
-                </div>
-              </RowFlexUi>
+          <TableUI
+          funcss='text-small'
+          right={<UiButton text={'Create Staff'} bold bg='primary' startIcon={<PiUser />} onClick={ () => setopen(true) } />}
+          data={{
+            "data": [],
+            "titles": ["Email", "Full Name", "Role", "Position", "position"],
+            "fields": ["email", "fullname", "role", "position", "position"],
+          }}
+          />
           }
           />
-            </form>
-            <SectionUI gap={2}/>
-            <div className="row">
-              <div className="col sm-12 md-4 lg-4 padding">
-                <Card funcss='roundEdgeSmall padding-20'>
-                  <RowFlexUi gap={0.7} justify='space-between'>
-                  <TextUi text='Branch' size='small' bold color='dark400'/>
-                  <div>
-                    <CircleUi bg='error' size={1.5}>
-                      <PiTrash />
-                    </CircleUi>
-                  </div>
-                  </RowFlexUi>
-                  <TextUi text='Greater Accra' heading='h4' bold color='dark400' block/>
-                </Card>
-              </div>
-            </div>
+        
             
         </Content>
     </div>

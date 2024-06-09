@@ -64,7 +64,7 @@ background-color: #F1F1F1 !important;
     padding: 100px 5%;
     z-index: 3;
   }
- ._body::after{
+ /* ._body::after{
   content: '';
   display: block;
   position: fixed;
@@ -85,7 +85,7 @@ opacity: 0.3;
   height: 100%;
   z-index: 2;
   backdrop-filter: blur(100rem);
- }
+ } */
 
   .mini_skeleton{
     padding: 3px;
