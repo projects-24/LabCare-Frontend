@@ -3,7 +3,7 @@ import React from 'react'
 import FullCenteredPage from 'funuicss/ui/specials/FullCenteredPage'
 import Input from '@/ui/input'
 import UiButton from '@/ui/button'
-import Logo from '@/ui/logo'
+import Logo from '@/ui/Logo'
 import SectionUI from '@/ui/section'
 
 
