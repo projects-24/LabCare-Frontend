@@ -9,7 +9,7 @@ import Link from "next/link";
 import RowFlex from "funuicss/ui/specials/RowFlex"
 import Section from "funuicss/ui/specials/Section"
 import Circle from "funuicss/ui/specials/Circle"
-import Logo from "./Logo";
+import Logo from "./MyLogo";
 import { PiCaretDown } from "react-icons/pi"
 import DropUp from 'funuicss/ui/drop/Up'
 import DropDown from 'funuicss/ui/drop/Down'
