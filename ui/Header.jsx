@@ -6,7 +6,7 @@ import BreadCrumb from 'funuicss/ui/breadcrumb/BreadCrumb'
 import RowFlexUi from './RowFlex'
 import Link from 'next/link'
 import TextUi from './Text'
-export default function Header() {
+export default function Header({title, }) {
     const [pathname, setpathname] = useState('')
     useEffect(() => {
         let res = window.location.pathname
@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <div>
         <Text
-        text="Branch"
+        text={title || ''}
         color='dark200'
         bold
         heading='h2'

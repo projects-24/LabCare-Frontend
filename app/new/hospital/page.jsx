@@ -84,7 +84,7 @@ const get_regions = () => [
       "text": "Western North"
   }
 ]
-export default function Staff() {
+export default function Hospital() {
   const [open, setopen] = useState(false)
 
   const Submit = async (data) => {
@@ -107,33 +107,30 @@ export default function Staff() {
           title={
             <div className='container'>
                 <TextUi text='Create & Edit'/>
-                <TextUi text='Staff👨‍💼' heading='h2' bold color='dark400' block/>
+                <TextUi text='🩺Hospital' heading='h2' bold color='dark400' block/>
           </div>
           }
           body={
           <div className='container'>
               <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
               <div className='col'>
-                <Input label={'Email'} hint={'username@email.com'} fullWidth name='email'/>
+                <Input label={'Name'} hint={'hospital name'} fullWidth name='name'/>
               </div>
               <div className='col'>
-              <Input label={'Password'} type='password' hint={'025710700'} fullWidth name='password'/>
-              </div>
-            </RowFlexUi>
-              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
-              <div className='col'>
-                <Input label={'Full Name'} hint={'username'} fullWidth name='fullname'/>
-              </div>
-              <div className='col'>
-              <Input label={'Phone'} hint={'025710700'} fullWidth name='phone'/>
+              <Input label={'GPS'} type='password' hint={'XW-003OO-3003-302'} fullWidth name='gps'/>
               </div>
             </RowFlexUi>
               <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
               <div className='col'>
-                <Input label={'Position'} hint={'user position'} fullWidth name='position'/>
+                <Input label={'Facility Type'} select fullWidth name='fullname'/>
               </div>
               <div className='col'>
-              <Input label={'Role'} hint={'Role'} fullWidth name='role'/>
+              <Input label={'Category'} fullWidth name='phone'/>
+              </div>
+            </RowFlexUi>
+              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
+              <div className='col'>
+              <Input label={'Region'} select options={get_regions()} fullWidth name='role'/>
               </div>
             </RowFlexUi>
           </div>
@@ -147,16 +144,16 @@ export default function Staff() {
 
         <Side />
         <Content>
-          <Header title={'Staff'}/>
+          <Header title={'Hospital'}/>
           <Card 
           funcss='roundEdgeSmall padding-20'
           body={
           <TableUI
           funcss='text-small'
-          right={<UiButton text={'Create Staff'} bold bg='primary' startIcon={<PiUser />} onClick={ () => setopen(true) } />}
+          right={<UiButton text={'Create Hospital'} bold bg='primary' startIcon={<PiUser />} onClick={ () => setopen(true) } />}
           data={{
             "data": [],
-            "titles": ["Email", "Full Name", "Role", "Position", "position"],
+            "titles": ["Hospital", "Region", "Type", "Category", "GPS"],
             "fields": ["email", "fullname", "role", "position", "position"],
           }}
           />

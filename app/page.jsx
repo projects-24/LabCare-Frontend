@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import FullCenteredPage from 'funuicss/ui/specials/FullCenteredPage'
 import Input from '@/ui/input'
@@ -20,6 +21,7 @@ export default function Home() {
         </div>
         <div className="margin-top-30">
           <UiButton
+          onClick={() => window.location.assign('/new/branch')}
           text='Login'
           primary 
           fullWidth

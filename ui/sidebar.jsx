@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from "react"
-import { PiBell, PiChartBar, PiGear, PiGridFour, PiHouse, PiList, PiPackage, PiPaperPlaneTilt, PiSignOut, PiUser, PiUsers, PiX } from 'react-icons/pi';
+import { PiBell, PiChartBar, PiDiamondsFourDuotone, PiGear, PiGridFour, PiHospital, PiHouse, PiList, PiPackage, PiPaperPlaneTilt, PiSignOut, PiUser, PiUsers, PiX } from 'react-icons/pi';
 import Text from 'funuicss/ui/text/Text'
 
 import List from 'funuicss/ui/list/List'
@@ -33,26 +33,23 @@ export default function Side({active}) {
 //    }, [get_user])
    
     const mainSectionLinks = [
-      {
-         "route" : "/page" ,
-         "icon" : <PiPackage /> ,
-         "text" : "Edit Page" ,
-      },
-      {
-         "route" : "/dashboard" ,
-         "icon" : <PiChartBar /> ,
-         "text" : "Dashboard" ,
-      },
+     
         {
-           "route" : "/subscriptions" ,
+           "route" : "/new/staff" ,
            "icon" : <PiUsers /> ,
-           "text" : "Subscribers" ,
+           "text" : "Staffs" ,
         }
         ,
         {
-           "route" : "campaigns" ,
-           "icon" : <PiPaperPlaneTilt /> ,
-           "text" : "Campaigns" ,
+           "route" : "/new/branch" ,
+           "icon" : <PiDiamondsFourDuotone /> ,
+           "text" : "Branchs" ,
+        }
+        ,
+        {
+           "route" : "/new/hospital" ,
+           "icon" : <PiHospital /> ,
+           "text" : "Hospital" ,
         }
      
      ]
@@ -106,29 +103,29 @@ export default function Side({active}) {
          </div> */}
    </div>
     <div className='side'>
-{/*     
+    
          <div className="text-center bb padding-bottom-10">
             <div>
                {
-                  user ?
-            <Image src={user.photo_url} alt="User profile picture" width={70} height={70} className="pointer" />
+                  true ?
+            <Image src={'/memojis/4.png'} alt="User profile picture" width={50} height={50} className="pointer" />
             : <Circle bg='dark800' funcss='width-70 height-70 center skeleton'/>
                }
             </div>
             {
-               user ?
-               <Text text={user.company} color='dark300' size='small'/>:
+               true ?
+               <Text text={"Lab Account"} color='dark300' size='small'/>:
                <div className="dark800 skeleton mini_skeleton  width-90-p center margin-bottom-5 margin-top-10 roundEdgeSmall" />
             }
             {
-               user ?
-               <Text text={user.category} color='dark400' block bold size='smaller'/>:
+               true ?
+               <Text text={'Ahmed Salim Adam'} color='dark400' block bold size='smaller'/>:
                <div className="dark800 skeleton mini_skeleton width-90-p center roundEdgeSmall" />
             }
-           </div> */}
+           </div>
         
 <Section gap={1}>
-   <Text size="smaller"  uppercase letterSpacing='0.1rem' text="User" block funcss="padding-bottom-10" />
+   <Text size="smaller"  uppercase letterSpacing='0.1rem' text="Configurations" block funcss="padding-bottom-10" />
 <List >
      
      {
@@ -137,7 +134,7 @@ export default function Side({active}) {
            <ListItem key={res.route}  >
            <Link href={res.route}>
               <RowFlex gap={0.5} funcss={` padding-5 roundEdgeSmall ${res.route == active ? "dark800" : ""}`}>
-                 <div className="width-30 height-30  central roundEdgeSmall dark900 text-dark">
+                 <div className="width-30 height-30  central roundEdgeSmall dark900 text-primary">
                    {res.icon}
                  </div>
                  <Text 
@@ -153,7 +150,7 @@ export default function Side({active}) {
   </List>
 </Section>
 
-<Text size="smaller"  uppercase letterSpacing='0.1rem' text="Settings" block funcss="padding-bottom-10 padding-top-10" />
+{/* <Text size="smaller"  uppercase letterSpacing='0.1rem' text="Settings" block funcss="padding-bottom-10 padding-top-10" />
 <List >
      
      {
@@ -175,7 +172,7 @@ export default function Side({active}) {
         </ListItem>
         ))
      }
-  </List>
+  </List> */}
     </div>
 </div>
   )
