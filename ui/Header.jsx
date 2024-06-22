@@ -6,7 +6,7 @@ import BreadCrumb from 'funuicss/ui/breadcrumb/BreadCrumb'
 import RowFlexUi from './RowFlex'
 import Link from 'next/link'
 import TextUi from './Text'
-export default function Header({title, }) {
+export default function Header({title, subtitle, uri}) {
     const [pathname, setpathname] = useState('')
     useEffect(() => {
         let res = window.location.pathname
@@ -14,17 +14,35 @@ export default function Header({title, }) {
     }, [])
     
   return (
-    <div>
+  <div>
+      <div className='dark900 text-dark padding-20 roundEdgeSmall'>
+    <RowFlexUi>
+      <div className='col'>
+      <div>
         <Text
-        text={title || ''}
-        color='dark200'
+        text={'-' + title || ''}
+        color='dark300'
         bold
-        heading='h2'
+        size='bigger'
         />
+   {
+    subtitle &&
+    <div className="width-600-max  fit">
+    <Text
+       text={subtitle || ''}
+       color='dark400'
+       block
+       article
+       />
+    </div>
+   }
+        </div>
+        <SectionUI gap={1.5}/>
         <RowFlexUi>
         <Link href="/" legacyBehavior>
             <TextUi text='Profile' bold color='primary'/>
         </Link>
+   
         {
             pathname &&
             pathname.map((res , index) => (
@@ -38,7 +56,13 @@ export default function Header({title, }) {
         }
      
         </RowFlexUi>
-        <SectionUI gap={4}/>
+      </div>
+      <div>
+        <img src={uri ? uri : "/svg/Virus-precautions.svg"} className='width-200' alt="" />
+      </div>
+    </RowFlexUi>
     </div>
+    <SectionUI gap={4}/>
+  </div>
   )
 }

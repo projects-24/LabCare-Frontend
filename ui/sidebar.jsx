@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from "react"
-import { PiBell, PiChartBar, PiDiamondsFourDuotone, PiGear, PiGridFour, PiHospital, PiHouse, PiList, PiPackage, PiPaperPlaneTilt, PiSignOut, PiUser, PiUsers, PiX } from 'react-icons/pi';
+import { PiBell, PiChartBar, PiDiamondsFourDuotone, PiGear, PiGridFour, PiHospital, PiHouse, PiList, PiPackage, PiPaperPlaneTilt, PiSignOut, PiUser, PiUserCheckDuotone, PiUsers, PiVirus, PiX } from 'react-icons/pi';
 import Text from 'funuicss/ui/text/Text'
 
 import List from 'funuicss/ui/list/List'
@@ -50,6 +50,18 @@ export default function Side({active}) {
            "route" : "/new/hospital" ,
            "icon" : <PiHospital /> ,
            "text" : "Hospital" ,
+        }
+        ,
+        {
+           "route" : "/new/doctor" ,
+           "icon" : <PiUserCheckDuotone /> ,
+           "text" : "Doctor" ,
+        }
+        ,
+        {
+           "route" : "/new/test" ,
+           "icon" : <PiVirus /> ,
+           "text" : "Test" ,
         }
      
      ]

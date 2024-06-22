@@ -144,7 +144,7 @@ export default function Hospital() {
 
         <Side />
         <Content>
-          <Header title={'Hospital'}/>
+          <Header title={'Hospital'} uri={'/svg/medicine.svg'} subtitle={'Create and manage all hospitals under your region'}/>
           <Card 
           funcss='roundEdgeSmall padding-20'
           body={

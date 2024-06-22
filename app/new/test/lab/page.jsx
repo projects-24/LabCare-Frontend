@@ -7,84 +7,15 @@ import Card from 'funuicss/ui/card/Card'
 import RowFlexUi from '@/ui/RowFlex'
 import TextUi from '@/ui/Text'
 import UiButton from '@/ui/button'
-import { PiPaperPlane, PiTrash, PiUser, PiX } from 'react-icons/pi'
+import { PiPaperPlane, PiPlus, PiTrash, PiUser, PiX } from 'react-icons/pi'
 import Input from '@/ui/input'
 import SectionUI from '@/ui/section'
 import CircleUi from '@/ui/Circle'
 import Modal from 'funuicss/ui/modal/Modal'
 import TableUI from '@/ui/Table'
 
-const get_regions = () => [
-  {
-      "value": "",
-      "text": "-- Select Region --"
-  },
-  {
-      "value": "Greater Accra",
-      "text": "Greater Accra"
-  },
-  {
-      "value": "Ashanti",
-      "text": "Ashanti"
-  },
-  {
-      "value": "Bono",
-      "text": "Bono"
-  },
-  {
-      "value": "Bono East",
-      "text": "Bono East"
-  },
-  {
-      "value": "Ahafo",
-      "text": "Ahafo"
-  },
-  {
-      "value": "Central",
-      "text": "Central"
-  },
-  {
-      "value": "Eastern",
-      "text": "Eastern"
-  },
-  {
-      "value": "Northern",
-      "text": "Northern"
-  },
-  {
-      "value": "Savannah",
-      "text": "Savannah"
-  },
-  {
-      "value": "North East",
-      "text": "North East"
-  },
-  {
-      "value": "Upper East",
-      "text": "Upper East"
-  },
-  {
-      "value": "Upper West",
-      "text": "Upper West"
-  },
-  {
-      "value": "Volta",
-      "text": "Volta"
-  },
-  {
-      "value": "Oti",
-      "text": "Oti"
-  },
-  {
-      "value": "Western",
-      "text": "Western"
-  },
-  {
-      "value": "Western North",
-      "text": "Western North"
-  }
-]
-export default function Staff() {
+
+export default function UltralSound() {
   const [open, setopen] = useState(false)
 
   const Submit = async (data) => {
@@ -107,33 +38,38 @@ export default function Staff() {
           title={
             <div className='container'>
                 <TextUi text='Create & Edit'/>
-                <TextUi text='Staff👨‍💼' heading='h2' bold color='dark400' block/>
+                <TextUi text='🩺Lab Test' heading='h2' bold color='dark400' block/>
           </div>
           }
           body={
           <div className='container'>
               <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
               <div className='col'>
-                <Input label={'Email'} hint={'username@email.com'} fullWidth name='email'/>
+                <Input label={'Test'} hint={'Test Name'} fullWidth name='name'/>
               </div>
               <div className='col'>
-              <Input label={'Password'} type='password' hint={'025710700'} fullWidth name='password'/>
-              </div>
-            </RowFlexUi>
-              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
-              <div className='col'>
-                <Input label={'Full Name'} hint={'username'} fullWidth name='fullname'/>
-              </div>
-              <div className='col'>
-              <Input label={'Phone'} hint={'025710700'} fullWidth name='phone'/>
+              <Input label={'Department'} type='text' select fullWidth name='department'/>
               </div>
             </RowFlexUi>
               <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
               <div className='col'>
-                <Input label={'Position'} hint={'user position'} fullWidth name='position'/>
+                <Input label={'Cost'} hint={'GHC'} type='number' fullWidth name='cost'/>
               </div>
               <div className='col'>
-              <Input label={'Role'} hint={'Role'} fullWidth name='role'/>
+              <Input label={'NHIL'} type='number' hint={'GHC'} fullWidth name='nhil'/>
+              </div>
+            </RowFlexUi>
+              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
+              <div className='col'>
+                <Input label={'G-DRG Code'} hint={'DR-00392-23'} type='number' fullWidth name='code'/>
+              </div>
+              <div className='col'>
+              <Input label={'Rank'} type='number' hint={'1'} fullWidth name='rank'/>
+              </div>
+            </RowFlexUi>
+              <RowFlexUi gap={1} alignItems='flex-start' funcss="margin-top-20">
+              <div className='col'>
+                <Input label={'Method'}  type='number' select fullWidth name='method'/>
               </div>
             </RowFlexUi>
           </div>
@@ -147,17 +83,17 @@ export default function Staff() {
 
         <Side />
         <Content>
-          <Header title={'Staff'} uri={'/svg/Community.svg'} subtitle={'Create and manage all staffs under your region.'}/>
+          <Header title={'Lab Test'} subtitle={'Create and manage all ultra-sound test.'}/>
           <Card 
           funcss='roundEdgeSmall padding-20'
           body={
           <TableUI
           funcss='text-small'
-          right={<UiButton text={'Create Staff'} bold bg='primary' startIcon={<PiUser />} onClick={ () => setopen(true) } />}
+          right={<UiButton text={'Lab Test'} bold bg='primary' startIcon={<PiPlus />} onClick={ () => setopen(true) } />}
           data={{
             "data": [],
-            "titles": ["Email", "Full Name", "Role", "Position", "position"],
-            "fields": ["email", "fullname", "role", "position", "position"],
+            "titles": ["Test", "Department", 'Cost', 'NHIL', 'G-DRG Code', 'Rank', 'Method',"Created"],
+            "fields": ["test", "department", 'cost', 'nhil', "created"],
           }}
           />
           }

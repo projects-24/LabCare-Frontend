@@ -98,7 +98,7 @@ export default async function Branch() {
     <div>
         <Side />
         <Content>
-          <Header />
+          <Header title={'Branch'}/>
           <form action={Submit}>
           <Card 
           funcss='roundEdgeSmall padding-20'
